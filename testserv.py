@@ -145,14 +145,14 @@ class Geobase:
             # если записи нет в базе
             return "Incorrect request"
 
-    def regexp(self, expr, item):
+    def __regexp(self, expr, item):
         r = re.compile(expr)
         return r.search(item) is not None
 
     def get_prompts(self, beg):
         # найти в базе имена по регулярному выражению 
         # функция регулярного выражения для sql 
-        self.conn.create_function("REGEXP", 2, self.regexp)
+        self.conn.create_function("REGEXP", 2, self.__regexp)
         self.cursor.execute(f"SELECT * FROM geonames WHERE name REGEXP '{beg}'")
         prompts = []
         promts_dict = self.__to_dict(self.cursor.fetchall())
