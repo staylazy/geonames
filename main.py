@@ -12,7 +12,7 @@ class Geobase:
         self.pdir = os.path.dirname(os.path.abspath(__file__))
 
     def connect_db(self):
-        self.conn = sqlite3.connect(self.pdir + '\geonames.db')
+        self.conn = sqlite3.connect(os.path.join(self.pdir, 'geonames.db'))
         self.conn.row_factory = sqlite3.Row
         self.cursor = self.conn.cursor()
         self.__check_db_existance()

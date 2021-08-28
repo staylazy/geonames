@@ -6,7 +6,7 @@
 
 geonameid   integer
 
-Пример запроса - /geonames/api/get_by_geonameid?geonameid=
+Пример запроса - /geonames/api/get_by_geonameid?geonameid=451747
 
 
 
